@@ -1,0 +1,220 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file /home/azarnykh/org/Anna.org
+
+
+* Anna makrs
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2013-10-27 Sun 22:11
+  :ARCHIVE_FILE: ~/org/Anna.org
+  :ARCHIVE_CATEGORY: Anna
+  :END:
+#+tblname: data_table
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Courses taken                |        |       |           |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Graded                       |        |       |           |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Name of Course               | Punkts | Grade |       PxG | Semester | Expectation |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+| # | Sociological Theory          |    8.0 |   4.0 |       32. |        1 |             |
+| # | Compar. Polit. Science       |    8.0 |   3.7 |      29.6 |        1 |             |
+| # | Social Structures            |    8.0 |   3.7 |      29.6 |        2 |             |
+| # | Microsociology               |    8.0 |   2.3 |      18.4 |        3 |             |
+| # | Empirical Sociology          |   12.0 |   1.7 |      20.4 |        3 |             |
+| # | Statistics                   |    5.0 |   3.3 |      16.5 |        1 |             |
+| # | Statistics                   |    5.0 |   2.7 |      13.5 |        4 |             |
+| # | Semester thesis Stat.        |        |       |         0 |        5 |         5.0 |
+| # | Semester thesis Stat.        |        |       |         0 |        4 |         5.0 |
+| # | FRG Politics                 |        |       |         0 |        5 |         8.0 |
+| # | Pol. T. and Idea Hist.       |        |       |         0 |        4 |         8.0 |
+| # | Vertifung-I                  |        |       |         0 |        4 |         7.0 |
+| # | Vertifung-II                 |        |       |         0 |        5 |         7.0 |
+| # | Bachelor Thesis              |        |       |         0 |          |        30.0 |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Summary                      |    54. |       | 1.9047619 |          |             |
+| ^ |                              |     pg |       |       avg |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Not Graded                   |        |       |           |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+| # | FC1(Ident. and Belong.)      |    5.0 |       |        0. |        4 |             |
+| # | FC2(Soc. of Economics)       |    5.0 |       |        0. |        4 |             |
+| # | FC3(Int. Organisation)       |    5.0 |       |        0. |        5 |             |
+| # | FC4(Quantative Soc. Sc)      |    5.0 |       |        0. |        5 |             |
+| # | Proseminar-I                 |    3.0 |       |        0. |        3 |             |
+| # | Proseminar-II                |    3.0 |       |        0. |        4 |             |
+| # | SG(FinanceMath_SA)           |        |       |         0 |       0. |         5.0 |
+| # | SG(Logistics_SA)             |        |       |         0 |       0. |         5.0 |
+| # | BZQ(Taxes_SA)                |        |       |         0 |       0. |         5.0 |
+| # | BZQ-Practics                 |        |       |         0 |        6 |        10.0 |
+| # | BZQ(Praktikums Kolloquium)   |    3.0 |       |        0. |        3 |             |
+| # | BZQ(Management Organization) |    5.0 |       |        0. |        5 |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Summary                      |    34. |       |           |          |             |
+| ^ |                              |   pung |       |           |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Total                        | Punkts |       | Avg Grade |          |             |
+|   |                              |   150. |       | 1.9047619 |          |             |
+| ^ |                              |      p |       |        gr |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+#+TBLFM: $5=($4*$3) :: $pg=vsum(@-II..@-I) :: $avg=vsum(@-II..@-I)/$pg :: $pung=vsum(@-II..@-I) :: $p=$pg+$pung :: $gr=$avg
+
+SG=studien generale       10.0   
+FC=Free choice            20.0
+BZQ=Bezugen Qualification+practics 30.0
+
+#+begin_src python :var data=data_table :results output 
+import numpy as np
+import pylab
+data_gr=data[3:10]
+pp=[data_gr[i][2] for i in range(7)]
+s=[data_gr[i][5] for i in range(7)]
+
+data_ung=data[20:26]
+[pp.append(data_ung[i][2]) for i in range(6)]
+[s.append(data_ung[i][5]) for i in range(6)]
+
+data_ung=data[30:32]
+[pp.append(data_ung[i][2]) for i in range(2)]
+[s.append(data_ung[i][5]) for i in range(2)]
+
+np.zeros(6)
+print pp, s
+#+end_src
+
+#+results:
+: [8.0, 8.0, 8.0, 8.0, 12.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 3.0, 3.0, 3.0, 5.0] [1, 1, 2, 3, 3, 1, 4, 4, 4, 5, 5, 3, 4, 3, 5]
+
+
+
+
+(8.0*(4.0+3.7+3.7+2.3)+12.0*(1.7)+5.0*(3.3+2.7))/(8.0*4.0+12+10.0)
+
+* Anna makrs
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2013-10-28 Mon 00:02
+  :ARCHIVE_FILE: ~/org/Anna.org
+  :ARCHIVE_CATEGORY: Anna
+  :END:
+#+tblname: data_table
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Courses taken                |        |       |           |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Graded                       |        |       |           |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Name of Course               | Punkts | Grade |       PxG | Semester | Expectation |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+| # | Sociological Theory          |    8.0 |   4.0 |       32. |        1 |             |
+| # | Compar. Polit. Science       |    8.0 |   3.7 |      29.6 |        1 |             |
+| # | Social Structures            |    8.0 |   3.7 |      29.6 |        2 |             |
+| # | Microsociology               |    8.0 |   2.3 |      18.4 |        3 |             |
+| # | Empirical Sociology          |   12.0 |   1.7 |      20.4 |        3 |             |
+| # | Statistics                   |    5.0 |   3.3 |      16.5 |        1 |             |
+| # | Statistics                   |    5.0 |   2.7 |      13.5 |        4 |             |
+| # | Semester thesis Stat.        |        |       |         0 |        5 |         5.0 |
+| # | Semester thesis Stat.        |        |       |         0 |        4 |         5.0 |
+| # | FRG Politics                 |        |       |         0 |        5 |         8.0 |
+| # | Pol. T. and Idea Hist.       |        |       |         0 |        4 |         8.0 |
+| # | Vertifung-I                  |        |       |         0 |        4 |         7.0 |
+| # | Vertifung-II                 |        |       |         0 |        5 |         7.0 |
+| # | Bachelor Thesis              |        |       |         0 |        7 |        30.0 |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Summary                      |    54. |       | 1.9047619 |          |             |
+| ^ |                              |     pg |       |       avg |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Not Graded                   |        |       |           |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+| # | FC1(Ident. and Belong.)      |    5.0 |       |        0. |        4 |             |
+| # | FC2(Soc. of Economics)       |    5.0 |       |        0. |        4 |             |
+| # | FC3(Int. Organisation)       |    5.0 |       |        0. |        5 |             |
+| # | FC4(Quantative Soc. Sc)      |    5.0 |       |        0. |        5 |             |
+| # | Proseminar-I                 |    3.0 |       |        0. |        3 |             |
+| # | Proseminar-II                |    3.0 |       |        0. |        4 |             |
+| # | SG(FinanceMath_SA)           |        |       |         0 |       0. |         5.0 |
+| # | SG(Logistics_SA)             |        |       |         0 |       0. |         5.0 |
+| # | BZQ(Taxes_SA)                |        |       |         0 |       0. |         5.0 |
+| # | BZQ-Practics                 |        |       |         0 |        6 |        10.0 |
+| # | BZQ(Praktikums Kolloquium)   |    3.0 |       |        0. |        3 |             |
+| # | BZQ(Management Organization) |    5.0 |       |        0. |        5 |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Summary                      |    34. |       |           |          |             |
+| ^ |                              |   pung |       |           |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+|   | Total                        | Punkts |       | Avg Grade |          |             |
+|   |                              |   150. |       | 1.9047619 |          |             |
+| ^ |                              |      p |       |        gr |          |             |
+|---+------------------------------+--------+-------+-----------+----------+-------------|
+#+TBLFM: $5=($4*$3) :: $pg=vsum(@-II..@-I) :: $avg=vsum(@-II..@-I)/$pg :: $pung=vsum(@-II..@-I) :: $p=$pg+$pung :: $gr=$avg
+
+SG=studien generale       10.0   
+FC=Free choice            20.0
+BZQ=Bezugen Qualification+practics 30.0
+
+Punkts Progress per semesters
+#+begin_src python :var data=data_table  :results output :exports results
+import numpy as np
+import pylab
+import matplotlib, numpy
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(6,4))
+
+data_gr=data[3:10]
+pp=[data_gr[i][2] for i in range(7)]
+s=[data_gr[i][5] for i in range(7)]
+
+
+data_ung=data[20:26]
+[pp.append(data_ung[i][2]) for i in range(6)]
+[s.append(data_ung[i][5]) for i in range(6)]
+
+data_ung=data[30:32]
+[pp.append(data_ung[i][2]) for i in range(2)]
+[s.append(data_ung[i][5]) for i in range(2)]
+
+data_gre=data[10:17]
+ppe=[data_gre[i][6] for i in range(7)]
+se=[data_gre[i][5] for i in range(7)]
+data_gre2=data[29:30]
+[ppe.append(data_gre2[i][6]) for i in range(1)]
+[se.append(data_gre2[i][5]) for i in range(1)]
+
+p=np.zeros(6)
+for i in range(len(pp)):
+   p[s[i]]+=pp[i]
+for i in range(1,6):
+   p[i]+=np.sum(p[i-1])
+
+pe=np.zeros(5)
+for i in range(len(ppe)):
+   pe[se[i]-3]+=ppe[i]
+pe[0]+=p[5]+15.0
+for i in range(1,5):
+   pe[i]+=np.sum(pe[i-1])
+print p, pe
+a=[]
+a.append(p[4]+15.0)
+[a.append(list(pe[1:5])[i]) for i in range(4)]
+print a
+plt.plot(range(5), p[0:5],  'o-', lw=4.0, color='green', label='Punkts collected')
+plt.plot([4,4], [p[4],p[4]+15.0],  'o-', lw=4.0, color='red', label='Punkts Sachsen Anhalt')
+plt.plot([4,4,5,6], a[0:4],  'o-', lw=4.0, color='blue', label='Punkts expected')
+print pe[3]
+plt.plot([6,7], pe[3:5],  'o-', lw=4.0, color='black', label='Diploma')
+plt.savefig('file1.png')
+plt.show()
+
+#return 'file1.png'
+#+end_src
+
+#+results:
+: [  0.  21.  29.  55.  73.  88.] [ 103.  123.  143.  153.  183.]
+: [88.0, 123.0, 143.0, 153.0, 183.0]
+: 153.0
+
+
+
+
+
+(8.0*(4.0+3.7+3.7+2.3)+12.0*(1.7)+5.0*(3.3+2.7))/(8.0*4.0+12+10.0)
